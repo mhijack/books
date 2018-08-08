@@ -1,2 +1,2 @@
-_psycache_
+__pycache__/
 flask_session
