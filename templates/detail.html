@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+
+{% block header %}
+{% endblock %}
+
+
+{% block heading %}
+    "{{ book.title }}"
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="book-detail">
+        <p><span class="book-info">Author: </span>{{ book.author }}</p>
+        <p><span class="book-info">Year: </span>{{ book.year }}</p>
+        <p><span class="book-info">ISBN: </span>{{ book.isbn }}</p>
+    </div>
+
+    <hr>
+
+    <div class="comment-container">
+        {% if comment: %}
+            <h4>User comments:</h4>
+            <p class="comment">{{ comment.body }} - <span>{{ comment.username }}</span></p>
+        {% else: %}
+            <div class="leave-comment">
+                <form action="/book/{{book.isbn}}/comment" method="POST">
+                    <label for="comment">Leave your comment below!</label>
+                    <br>
+
+                    <textarea name="comment" type="text"></textarea>
+                    <br>
+
+                    <input type="submit">
+                </form>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

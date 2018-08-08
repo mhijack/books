@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+
+{% block header %}
+{% endblock %}
+
+
+{% block heading %}
+    Search Results
+{% endblock %}
+
+
+{% block body %}
+    {% if (books|length > 0): %}
+        <div class="book">
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>ISBN</th>
+                </tr>
+                {% for book in books: %}
+                    <tr>
+                        <td><a href="/book/{{book.isbn}}">{{ book.title }}</a></td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.year }}</td>
+                        <td>{{ book.isbn }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% else: %}
+        <div>
+            There were no results matching your query.
+        </div>
+    {% endif %}
+{% endblock %}

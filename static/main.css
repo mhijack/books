@@ -1,0 +1,17 @@
+.flashes {
+    color: red;
+}
+
+.input {
+    display: block;
+    margin: 10px 0;
+}
+
+.input label {
+    display: inline-block;
+    width: 40px;
+}
+
+.book-info {
+    font-weight: 900;
+}
